@@ -1,9 +1,9 @@
 package com.adamzfc.architecturecomponentsdemo.db;
 
-import android.accounts.Account;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
 
+import com.adamzfc.architecturecomponentsdemo.vo.Account;
 import com.adamzfc.architecturecomponentsdemo.vo.Transaction;
 
 
