@@ -22,7 +22,7 @@ public class Transaction {
     public final int id;
     public final String description;
     public final Date date;
-    private int account_id;
+    public int account_id;
 
     public Transaction(int id, String description, Date date) {
         this.id = id;

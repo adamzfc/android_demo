@@ -5,7 +5,7 @@ import android.arch.persistence.room.Entity;
 /**
  * Created by adamzfc on 2017/6/28.
  */
-@Entity(primaryKeys = {"id"})
+@Entity(primaryKeys = "id")
 public class Account {
     public final int id;
     public final String name;

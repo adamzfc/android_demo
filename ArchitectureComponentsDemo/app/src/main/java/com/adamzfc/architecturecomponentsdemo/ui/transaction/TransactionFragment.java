@@ -7,11 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.adamzfc.architecturecomponentsdemo.di.Injectable;
+
 /**
  * Created by adamzfc on 2017/6/29.
  */
 
-public class TransactionFragment extends LifecycleFragment {
+public class TransactionFragment extends LifecycleFragment implements Injectable {
 
     @Nullable
     @Override

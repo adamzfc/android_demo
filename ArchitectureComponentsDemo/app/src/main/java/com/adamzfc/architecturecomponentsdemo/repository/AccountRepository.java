@@ -24,6 +24,7 @@ import javax.inject.Singleton;
  */
 @Singleton
 public class AccountRepository {
+    private static final String TAG = AccountRepository.class.getSimpleName();
     private final FinancialDb db;
 
     private final AccountDao accountDao;
@@ -41,6 +42,19 @@ public class AccountRepository {
         this.accountDao = accountDao;
         this.financialService = financialService;
         this.appExecutors = appExecutors;
+    }
+
+    public void addAccount(Account account) {
+        appExecutors.diskIO().execute(() -> {
+            accountDao.insert(account);
+//            appExecutors.mainThread().execute(() ->
+//                    // we specially request a new live data,
+//                    // otherwise we will get immediately last cached value,
+//                    // which may not be updated with latest results received from network.
+//                    result.addSource(loadFromDb(),
+//                            newData -> result.setValue(Resource.success(newData)))
+//            );
+        });
     }
 
     public LiveData<Resource<List<Account>>> loadAccounts() {
@@ -65,7 +79,7 @@ public class AccountRepository {
             @NonNull
             @Override
             protected LiveData<ApiResponse<List<Account>>> createCall() {
-                return null;
+                return financialService.getAccounts();
             }
         }.asLiveData();
     }

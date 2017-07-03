@@ -19,16 +19,30 @@ package com.adamzfc.architecturecomponentsdemo.di;
 import android.app.Application;
 import android.arch.persistence.room.Room;
 
+import com.adamzfc.architecturecomponentsdemo.api.FinancialService;
 import com.adamzfc.architecturecomponentsdemo.db.AccountDao;
 import com.adamzfc.architecturecomponentsdemo.db.FinancialDb;
+import com.adamzfc.architecturecomponentsdemo.util.LiveDataCallAdapterFactory;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module(includes = ViewModelModule.class)
 class AppModule {
+
+    @Singleton @Provides
+    FinancialService provideFinancialService() {
+        return new Retrofit.Builder()
+                .baseUrl("http://localhost")
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(new LiveDataCallAdapterFactory())
+                .build()
+                .create(FinancialService.class);
+    }
 
     @Singleton @Provides
     FinancialDb provideDb(Application app) {

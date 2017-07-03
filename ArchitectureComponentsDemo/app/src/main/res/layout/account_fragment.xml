@@ -7,21 +7,28 @@
         <variable
             name="title"
             type="String"/>
+        <variable
+            name="presenter"
+            type="com.adamzfc.architecturecomponentsdemo.ui.account.AccountPresenter"/>
     </data>
-    <LinearLayout
+    <android.support.design.widget.CoordinatorLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
-            android:text="@{title}"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/account_list"
             tools:listitem="@layout/account_item"
             app:layoutManager="LinearLayoutManager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-    </LinearLayout>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:onClick="@{() -> presenter.addAccount()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@android:drawable/ic_dialog_email"/>
+    </android.support.design.widget.CoordinatorLayout>
 
 </layout>

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.adamzfc.architecturecomponentsdemo.R;
 import com.adamzfc.architecturecomponentsdemo.databinding.AccountFragmentBinding;
+import com.adamzfc.architecturecomponentsdemo.di.Injectable;
 import com.adamzfc.architecturecomponentsdemo.util.AutoClearedValue;
 import com.adamzfc.architecturecomponentsdemo.vo.Account;
 import com.adamzfc.architecturecomponentsdemo.vo.Resource;
@@ -26,7 +27,7 @@ import javax.inject.Inject;
  * Created by adamzfc on 2017/6/29.
  */
 
-public class AccountFragment extends LifecycleFragment {
+public class AccountFragment extends LifecycleFragment implements Injectable {
     AutoClearedValue<AccountFragmentBinding> binding;
     AutoClearedValue<AccountAdapter> adapter;
     private AccountViewModel accountViewModel;
@@ -40,22 +41,23 @@ public class AccountFragment extends LifecycleFragment {
                              @Nullable Bundle savedInstanceState) {
         AccountFragmentBinding dataBinding = DataBindingUtil
                 .inflate(inflater, R.layout.account_fragment, container, false);
-        dataBinding.setTitle("title");
         this.binding = new AutoClearedValue<>(this, dataBinding);
         return dataBinding.getRoot();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         accountViewModel = ViewModelProviders.of(this, viewModelFactory).get(AccountViewModel.class);
         AccountAdapter adapter = new AccountAdapter();
         this.adapter = new AutoClearedValue<>(this, adapter);
         this.binding.get().accountList.setAdapter(adapter);
-        super.onActivityCreated(savedInstanceState);
+        this.binding.get().setPresenter(accountViewModel);
+        initAccountList(accountViewModel);
     }
 
     private void initAccountList(AccountViewModel viewModel) {
-        LiveData<Resource<List<Account>>> accounts = accountViewModel.getAccounts();
+        LiveData<Resource<List<Account>>> accounts = viewModel.getAccounts();
         accounts.observe(this, listResource -> {
             if (listResource != null && listResource.data != null) {
                 adapter.get().replace(listResource.data);
@@ -63,7 +65,6 @@ public class AccountFragment extends LifecycleFragment {
                 adapter.get().replace(Collections.emptyList());
             }
         });
-
     }
 
 }
