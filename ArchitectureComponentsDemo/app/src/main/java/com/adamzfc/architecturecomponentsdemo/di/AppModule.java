@@ -20,6 +20,7 @@ import android.app.Application;
 import android.arch.persistence.room.Room;
 
 import com.adamzfc.architecturecomponentsdemo.api.FinancialService;
+import com.adamzfc.architecturecomponentsdemo.api.LogInterceptor;
 import com.adamzfc.architecturecomponentsdemo.db.AccountDao;
 import com.adamzfc.architecturecomponentsdemo.db.FinancialDb;
 import com.adamzfc.architecturecomponentsdemo.util.LiveDataCallAdapterFactory;
@@ -28,6 +29,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -36,10 +38,13 @@ class AppModule {
 
     @Singleton @Provides
     FinancialService provideFinancialService() {
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .addInterceptor(new LogInterceptor()).build();
         return new Retrofit.Builder()
-                .baseUrl("http://localhost")
+                .baseUrl("http://192.168.1.101:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(new LiveDataCallAdapterFactory())
+                .client(client)
                 .build()
                 .create(FinancialService.class);
     }

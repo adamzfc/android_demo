@@ -35,7 +35,6 @@ public class AccountViewModel extends ViewModel implements AccountPresenter {
     public void addAccount() {
         Log.d(TAG, "addAccount");
 //        this.accounts.getValue().data.add(new Account(1, "account_test"));
-        int id = (int)(1+Math.random()*100);
-        repository.addAccount(new Account(id, "account" + id));
+        repository.addAccount(new Account("account"));
     }
 }

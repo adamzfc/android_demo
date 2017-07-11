@@ -13,6 +13,6 @@ import retrofit2.http.GET;
  */
 
 public interface FinancialService {
-    @GET("/account")
+    @GET("/api/account")
     LiveData<ApiResponse<List<Account>>> getAccounts();
 }

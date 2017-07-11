@@ -1,16 +1,25 @@
 package com.adamzfc.architecturecomponentsdemo.vo;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+
+import java.util.UUID;
 
 /**
  * Created by adamzfc on 2017/6/28.
  */
 @Entity(primaryKeys = "id")
 public class Account {
-    public final int id;
+    public final String id;
     public final String name;
 
-    public Account(int id, String name) {
+    @Ignore
+    public Account(String name) {
+        this.name = name;
+        this.id = UUID.randomUUID().toString();
+    }
+
+    public Account(String id, String name) {
         this.id = id;
         this.name = name;
     }

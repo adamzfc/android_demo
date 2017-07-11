@@ -17,8 +17,12 @@
 package com.adamzfc.architecturecomponentsdemo.util;
 
 import android.arch.lifecycle.LiveData;
+import android.util.Log;
 
 import com.adamzfc.architecturecomponentsdemo.api.ApiResponse;
+import com.adamzfc.architecturecomponentsdemo.api.ApiResult;
+
+import org.apache.commons.lang3.reflect.TypeUtils;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.ParameterizedType;
@@ -35,7 +39,9 @@ public class LiveDataCallAdapterFactory extends CallAdapter.Factory {
             return null;
         }
         Type observableType = getParameterUpperBound(0, (ParameterizedType) returnType);
+        Log.d("type", observableType.toString());
         Class<?> rawObservableType = getRawType(observableType);
+        Log.d("type", rawObservableType.toString());
         if (rawObservableType != ApiResponse.class) {
             throw new IllegalArgumentException("type must be a resource");
         }
@@ -43,6 +49,9 @@ public class LiveDataCallAdapterFactory extends CallAdapter.Factory {
             throw new IllegalArgumentException("resource must be parameterized");
         }
         Type bodyType = getParameterUpperBound(0, (ParameterizedType) observableType);
-        return new LiveDataCallAdapter<>(bodyType);
+        Log.d("type", bodyType.toString());
+        Type newBodyType = TypeUtils.parameterize(ApiResult.class, bodyType);
+        Log.d("type", newBodyType.toString());
+        return new LiveDataCallAdapter<>(newBodyType);
     }
 }
