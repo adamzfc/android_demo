@@ -58,6 +58,7 @@ public class AccountRepository {
     }
 
     public LiveData<Resource<List<Account>>> loadAccounts() {
+        String loadAccountsKey = "loadAccounts";
         return new NetworkBoundResource<List<Account>, List<Account>>(appExecutors) {
 
             @Override
@@ -67,7 +68,8 @@ public class AccountRepository {
 
             @Override
             protected boolean shouldFetch(@Nullable List<Account> data) {
-                return data == null || data.isEmpty();
+                return data == null || data.isEmpty()
+                        || accountListRateLimit.shouldFetch(loadAccountsKey);
             }
 
             @NonNull
@@ -83,4 +85,5 @@ public class AccountRepository {
             }
         }.asLiveData();
     }
+
 }

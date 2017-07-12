@@ -6,6 +6,7 @@ import com.adamzfc.architecturecomponentsdemo.vo.Account;
 
 import java.util.List;
 
+import io.reactivex.Flowable;
 import retrofit2.http.GET;
 
 /**
@@ -15,4 +16,8 @@ import retrofit2.http.GET;
 public interface FinancialService {
     @GET("/api/account")
     LiveData<ApiResponse<List<Account>>> getAccounts();
+
+    @GET("/api/account")
+    Flowable<ApiResponse<List<Account>>> getAccountsRx();
+
 }

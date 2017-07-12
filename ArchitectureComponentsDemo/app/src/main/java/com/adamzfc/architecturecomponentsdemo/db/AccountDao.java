@@ -10,6 +10,8 @@ import com.adamzfc.architecturecomponentsdemo.vo.Account;
 
 import java.util.List;
 
+import io.reactivex.Flowable;
+
 
 /**
  * Created by adamzfc on 2017/6/28.
@@ -30,5 +32,8 @@ public interface AccountDao {
 
     @Query("SELECT * FROM account")
     LiveData<List<Account>> loadAccounts();
+
+    @Query("SELECT * FROM account")
+    Flowable<List<Account>> loadAccountsRx();
 
 }

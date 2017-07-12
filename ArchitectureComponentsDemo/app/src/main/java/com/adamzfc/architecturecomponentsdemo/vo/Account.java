@@ -2,13 +2,14 @@ package com.adamzfc.architecturecomponentsdemo.vo;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.Index;
 
 import java.util.UUID;
 
 /**
  * Created by adamzfc on 2017/6/28.
  */
-@Entity(primaryKeys = "id")
+@Entity(primaryKeys = "id", indices = {@Index("id")})
 public class Account {
     public final String id;
     public final String name;
