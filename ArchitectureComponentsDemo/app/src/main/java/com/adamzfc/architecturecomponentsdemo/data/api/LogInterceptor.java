@@ -1,4 +1,4 @@
-package com.adamzfc.architecturecomponentsdemo.api;
+package com.adamzfc.architecturecomponentsdemo.data.api;
 
 import android.util.Log;
 
@@ -31,6 +31,10 @@ public class LogInterceptor implements Interceptor {
         //打印请求日志
         Log.v(TAG, "request: " + newRequest.toString());
         //请求
+        if (newRequest.method().equals("POST")) {
+            String req = bodyToString(newRequest.body());
+            Log.i(TAG, "request body: " + req);
+        }
         //long t1 = System.nanoTime();
         okhttp3.Response response = chain.proceed(newRequest);
         //回调

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import com.adamzfc.architecturecomponentsdemo.R;
 import com.adamzfc.architecturecomponentsdemo.databinding.AccountItemBinding;
 import com.adamzfc.architecturecomponentsdemo.ui.common.DataBoundListAdapter;
-import com.adamzfc.architecturecomponentsdemo.vo.Account;
+import com.adamzfc.architecturecomponentsdemo.data.vo.Account;
 
 /**
  * Created by adamzfc on 2017/6/29.

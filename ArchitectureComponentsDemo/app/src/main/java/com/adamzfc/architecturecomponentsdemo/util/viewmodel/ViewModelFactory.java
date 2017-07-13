@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.adamzfc.architecturecomponentsdemo.viewmodel;
+package com.adamzfc.architecturecomponentsdemo.util.viewmodel;
 
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;

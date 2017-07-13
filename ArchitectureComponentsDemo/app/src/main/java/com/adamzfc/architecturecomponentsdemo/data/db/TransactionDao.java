@@ -1,10 +1,10 @@
-package com.adamzfc.architecturecomponentsdemo.db;
+package com.adamzfc.architecturecomponentsdemo.data.db;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 
-import com.adamzfc.architecturecomponentsdemo.vo.Transaction;
+import com.adamzfc.architecturecomponentsdemo.data.vo.Transaction;
 
 
 /**

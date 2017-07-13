@@ -1,9 +1,9 @@
-package com.adamzfc.architecturecomponentsdemo.repository;
+package com.adamzfc.architecturecomponentsdemo.data.repository;
 
 import com.adamzfc.architecturecomponentsdemo.AppExecutors;
-import com.adamzfc.architecturecomponentsdemo.api.FinancialService;
-import com.adamzfc.architecturecomponentsdemo.db.FinancialDb;
-import com.adamzfc.architecturecomponentsdemo.db.TransactionDao;
+import com.adamzfc.architecturecomponentsdemo.data.api.FinancialService;
+import com.adamzfc.architecturecomponentsdemo.data.db.FinancialDb;
+import com.adamzfc.architecturecomponentsdemo.data.db.TransactionDao;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.adamzfc.architecturecomponentsdemo.vo;
+package com.adamzfc.architecturecomponentsdemo.data.vo;
 
 /**
  * Status of a resource that is provided to the UI.

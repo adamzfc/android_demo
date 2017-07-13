@@ -25,7 +25,7 @@
         <!--android:onClick="@{() -> presenter.addAccount()}"-->
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
-            android:onClick="@{() -> presenter.getAccounts()}"
+            android:onClick="@{(v) -> presenter.addAccount(v)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"

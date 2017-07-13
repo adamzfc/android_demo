@@ -1,9 +1,10 @@
 package com.adamzfc.architecturecomponentsdemo.ui.account;
 
 import android.arch.lifecycle.LiveData;
+import android.view.View;
 
-import com.adamzfc.architecturecomponentsdemo.vo.Account;
-import com.adamzfc.architecturecomponentsdemo.vo.Resource;
+import com.adamzfc.architecturecomponentsdemo.data.vo.Account;
+import com.adamzfc.architecturecomponentsdemo.data.vo.Resource;
 
 import java.util.List;
 
@@ -12,6 +13,8 @@ import java.util.List;
  */
 
 public interface AccountPresenter {
-    void addAccount();
+    void addAccount(View view);
     LiveData<Resource<List<Account>>> getAccounts();
+
+
 }

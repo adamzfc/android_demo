@@ -2,7 +2,7 @@ package com.adamzfc.architecturecomponentsdemo.ui.transaction;
 
 import android.arch.lifecycle.ViewModel;
 
-import com.adamzfc.architecturecomponentsdemo.repository.TransactionRepository;
+import com.adamzfc.architecturecomponentsdemo.data.repository.TransactionRepository;
 
 import javax.inject.Inject;
 

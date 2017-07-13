@@ -5,7 +5,7 @@ import android.arch.lifecycle.ViewModelProvider;
 
 import com.adamzfc.architecturecomponentsdemo.ui.account.AccountViewModel;
 import com.adamzfc.architecturecomponentsdemo.ui.transaction.TransactionViewModel;
-import com.adamzfc.architecturecomponentsdemo.viewmodel.ViewModelFactory;
+import com.adamzfc.architecturecomponentsdemo.util.viewmodel.ViewModelFactory;
 
 import dagger.Binds;
 import dagger.Module;

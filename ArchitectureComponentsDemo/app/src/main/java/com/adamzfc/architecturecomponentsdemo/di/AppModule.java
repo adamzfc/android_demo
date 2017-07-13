@@ -18,12 +18,14 @@ package com.adamzfc.architecturecomponentsdemo.di;
 
 import android.app.Application;
 import android.arch.persistence.room.Room;
+import android.content.Context;
 
-import com.adamzfc.architecturecomponentsdemo.api.FinancialService;
-import com.adamzfc.architecturecomponentsdemo.api.LogInterceptor;
-import com.adamzfc.architecturecomponentsdemo.db.AccountDao;
-import com.adamzfc.architecturecomponentsdemo.db.FinancialDb;
-import com.adamzfc.architecturecomponentsdemo.db.TransactionDao;
+import com.adamzfc.architecturecomponentsdemo.data.api.FinancialService;
+import com.adamzfc.architecturecomponentsdemo.data.api.LogInterceptor;
+import com.adamzfc.architecturecomponentsdemo.data.db.AccountDao;
+import com.adamzfc.architecturecomponentsdemo.data.db.FinancialDb;
+import com.adamzfc.architecturecomponentsdemo.data.db.TransactionDao;
+import com.adamzfc.architecturecomponentsdemo.util.AppConstants;
 import com.adamzfc.architecturecomponentsdemo.util.LiveDataCallAdapterFactory;
 
 import javax.inject.Singleton;
@@ -32,6 +34,7 @@ import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module(includes = ViewModelModule.class)
@@ -44,6 +47,7 @@ class AppModule {
         return new Retrofit.Builder()
                 .baseUrl("http://192.168.1.101:8080")
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addCallAdapterFactory(new LiveDataCallAdapterFactory())
                 .client(client)
                 .build()
@@ -63,6 +67,18 @@ class AppModule {
     @Singleton @Provides
     TransactionDao provideTransactionDao(FinancialDb db) {
         return db.transactionDao();
+    }
+
+    @Provides
+    @ApplicationContext
+    Context provideContext(Application application) {
+        return application;
+    }
+
+    @Provides
+    @PreferenceInfo
+    String providePreferenceName() {
+        return AppConstants.PREF_NAME;
     }
 
 }

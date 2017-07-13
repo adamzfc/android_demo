@@ -1,4 +1,4 @@
-package com.adamzfc.architecturecomponentsdemo.api;
+package com.adamzfc.architecturecomponentsdemo.data.api;
 
 /**
  * Created by adamzfc on 2017/7/11.

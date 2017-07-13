@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.adamzfc.architecturecomponentsdemo.vo;
+package com.adamzfc.architecturecomponentsdemo.data.vo;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import static com.adamzfc.architecturecomponentsdemo.vo.Status.ERROR;
-import static com.adamzfc.architecturecomponentsdemo.vo.Status.LOADING;
-import static com.adamzfc.architecturecomponentsdemo.vo.Status.SUCCESS;
+import static com.adamzfc.architecturecomponentsdemo.data.vo.Status.ERROR;
+import static com.adamzfc.architecturecomponentsdemo.data.vo.Status.LOADING;
+import static com.adamzfc.architecturecomponentsdemo.data.vo.Status.SUCCESS;
 
 
 /**

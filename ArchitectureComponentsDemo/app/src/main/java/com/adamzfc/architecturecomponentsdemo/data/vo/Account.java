@@ -1,4 +1,4 @@
-package com.adamzfc.architecturecomponentsdemo.vo;
+package com.adamzfc.architecturecomponentsdemo.data.vo;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;

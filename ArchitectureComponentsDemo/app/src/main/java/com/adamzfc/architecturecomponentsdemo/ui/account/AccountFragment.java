@@ -16,9 +16,9 @@ import com.adamzfc.architecturecomponentsdemo.R;
 import com.adamzfc.architecturecomponentsdemo.databinding.AccountFragmentBinding;
 import com.adamzfc.architecturecomponentsdemo.di.Injectable;
 import com.adamzfc.architecturecomponentsdemo.util.AutoClearedValue;
-import com.adamzfc.architecturecomponentsdemo.vo.Account;
-import com.adamzfc.architecturecomponentsdemo.vo.Resource;
-import com.adamzfc.architecturecomponentsdemo.vo.Status;
+import com.adamzfc.architecturecomponentsdemo.data.vo.Account;
+import com.adamzfc.architecturecomponentsdemo.data.vo.Resource;
+import com.adamzfc.architecturecomponentsdemo.data.vo.Status;
 
 import java.util.Collections;
 import java.util.List;

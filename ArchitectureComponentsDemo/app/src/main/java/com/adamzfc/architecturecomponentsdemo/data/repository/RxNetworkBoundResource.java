@@ -1,12 +1,12 @@
-package com.adamzfc.architecturecomponentsdemo.repository;
+package com.adamzfc.architecturecomponentsdemo.data.repository;
 
 import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.WorkerThread;
 
-import com.adamzfc.architecturecomponentsdemo.api.ApiResponse;
-import com.adamzfc.architecturecomponentsdemo.vo.Resource;
+import com.adamzfc.architecturecomponentsdemo.data.api.ApiResponse;
+import com.adamzfc.architecturecomponentsdemo.data.vo.Resource;
 
 import io.reactivex.Flowable;
 import io.reactivex.disposables.CompositeDisposable;

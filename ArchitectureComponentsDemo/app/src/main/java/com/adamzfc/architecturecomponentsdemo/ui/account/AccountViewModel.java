@@ -2,11 +2,15 @@ package com.adamzfc.architecturecomponentsdemo.ui.account;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
+import android.support.v7.app.AlertDialog;
+import android.text.InputType;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 
-import com.adamzfc.architecturecomponentsdemo.repository.AccountRepository;
-import com.adamzfc.architecturecomponentsdemo.vo.Account;
-import com.adamzfc.architecturecomponentsdemo.vo.Resource;
+import com.adamzfc.architecturecomponentsdemo.data.repository.AccountRepository;
+import com.adamzfc.architecturecomponentsdemo.data.vo.Account;
+import com.adamzfc.architecturecomponentsdemo.data.vo.Resource;
 
 import java.util.List;
 
@@ -32,9 +36,24 @@ public class AccountViewModel extends ViewModel implements AccountPresenter {
     }
 
     @Override
-    public void addAccount() {
+    public void addAccount(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+        builder.setTitle("Title");
+
+// Set up the input
+        final EditText input = new EditText(view.getContext());
+// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+
+// Set up the buttons
+        builder.setPositiveButton("OK", (dialog, which) ->
+                repository.addAccount(new Account(input.getText().toString())));
+        builder.setNegativeButton("Cancel", (dialog, which) ->
+                dialog.cancel());
+        builder.show();
         Log.d(TAG, "addAccount");
 //        this.accounts.getValue().data.add(new Account(1, "account_test"));
-        repository.addAccount(new Account("account"));
+//        repository.addAccount(new Account("account"));
     }
 }

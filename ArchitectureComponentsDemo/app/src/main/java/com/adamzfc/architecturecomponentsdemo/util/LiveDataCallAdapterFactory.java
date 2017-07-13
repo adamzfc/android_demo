@@ -19,8 +19,8 @@ package com.adamzfc.architecturecomponentsdemo.util;
 import android.arch.lifecycle.LiveData;
 import android.util.Log;
 
-import com.adamzfc.architecturecomponentsdemo.api.ApiResponse;
-import com.adamzfc.architecturecomponentsdemo.api.ApiResult;
+import com.adamzfc.architecturecomponentsdemo.data.api.ApiResponse;
+import com.adamzfc.architecturecomponentsdemo.data.api.ApiResult;
 
 import org.apache.commons.lang3.reflect.TypeUtils;
 

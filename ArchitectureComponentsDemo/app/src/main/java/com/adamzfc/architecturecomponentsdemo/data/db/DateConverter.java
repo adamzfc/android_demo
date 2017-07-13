@@ -1,4 +1,4 @@
-package com.adamzfc.architecturecomponentsdemo.db;
+package com.adamzfc.architecturecomponentsdemo.data.db;
 
 import android.arch.persistence.room.TypeConverter;
 

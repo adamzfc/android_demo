@@ -1,11 +1,11 @@
-package com.adamzfc.architecturecomponentsdemo.vo;
+package com.adamzfc.architecturecomponentsdemo.data.vo;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.TypeConverters;
 
-import com.adamzfc.architecturecomponentsdemo.db.DateConverter;
+import com.adamzfc.architecturecomponentsdemo.data.db.DateConverter;
 
 import java.util.Date;
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.adamzfc.architecturecomponentsdemo.api;
+package com.adamzfc.architecturecomponentsdemo.data.api;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
