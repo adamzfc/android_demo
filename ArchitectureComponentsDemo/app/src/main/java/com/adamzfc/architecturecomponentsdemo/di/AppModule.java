@@ -23,6 +23,7 @@ import com.adamzfc.architecturecomponentsdemo.api.FinancialService;
 import com.adamzfc.architecturecomponentsdemo.api.LogInterceptor;
 import com.adamzfc.architecturecomponentsdemo.db.AccountDao;
 import com.adamzfc.architecturecomponentsdemo.db.FinancialDb;
+import com.adamzfc.architecturecomponentsdemo.db.TransactionDao;
 import com.adamzfc.architecturecomponentsdemo.util.LiveDataCallAdapterFactory;
 
 import javax.inject.Singleton;
@@ -57,6 +58,11 @@ class AppModule {
     @Singleton @Provides
     AccountDao provideUserDao(FinancialDb db) {
         return db.accountDao();
+    }
+
+    @Singleton @Provides
+    TransactionDao provideTransactionDao(FinancialDb db) {
+        return db.transactionDao();
     }
 
 }

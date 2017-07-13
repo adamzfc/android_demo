@@ -7,17 +7,25 @@
             name="account"
             type="com.adamzfc.architecturecomponentsdemo.vo.Account"/>
     </data>
-    <LinearLayout
-        android:orientation="horizontal"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:text="@{String.valueOf(account.id)}"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:text="@{account.name}"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginStart="@dimen/horizontal_page_margin"
+                android:layout_marginLeft="@dimen/horizontal_page_margin"
+                android:text="@{String.valueOf(account.id)}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginStart="@dimen/horizontal_page_margin"
+                android:layout_marginLeft="@dimen/horizontal_page_margin"
+                android:text="@{account.name}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 </layout>
