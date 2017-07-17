@@ -3,7 +3,6 @@ package com.adamzfc.architecturecomponentsdemo.data.repository;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.adamzfc.architecturecomponentsdemo.AppExecutors;
 import com.adamzfc.architecturecomponentsdemo.data.api.ApiResponse;
@@ -54,10 +53,9 @@ public class AccountRepository {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(res -> {
                     if (res.isSuccess()) {
-                        appExecutors.diskIO().execute(() -> {
-                            Log.d("executor", "exe");
-                            accountDao.insert(account);
-                        });
+                        appExecutors.diskIO().execute(() ->
+                            accountDao.insert(account)
+                        );
                     }
                 });
     }
