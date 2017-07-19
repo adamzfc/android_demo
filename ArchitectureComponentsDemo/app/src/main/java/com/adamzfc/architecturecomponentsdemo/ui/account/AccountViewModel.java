@@ -20,7 +20,7 @@ import javax.inject.Inject;
  * Created by adamzfc on 2017/6/29.
  */
 
-public class AccountViewModel extends ViewModel implements AccountPresenter {
+public class AccountViewModel extends ViewModel {
     private static final String TAG = AccountViewModel.class.getSimpleName();
     private final LiveData<Resource<List<Account>>> accounts;
     private final AccountRepository repository;
@@ -35,7 +35,6 @@ public class AccountViewModel extends ViewModel implements AccountPresenter {
         return this.accounts;
     }
 
-    @Override
     public void addAccount(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
         builder.setTitle("Title");

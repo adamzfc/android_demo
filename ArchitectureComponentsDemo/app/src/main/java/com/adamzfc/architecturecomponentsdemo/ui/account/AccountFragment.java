@@ -13,12 +13,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.adamzfc.architecturecomponentsdemo.R;
-import com.adamzfc.architecturecomponentsdemo.databinding.AccountFragmentBinding;
-import com.adamzfc.architecturecomponentsdemo.di.Injectable;
-import com.adamzfc.architecturecomponentsdemo.util.AutoClearedValue;
 import com.adamzfc.architecturecomponentsdemo.data.vo.Account;
 import com.adamzfc.architecturecomponentsdemo.data.vo.Resource;
 import com.adamzfc.architecturecomponentsdemo.data.vo.Status;
+import com.adamzfc.architecturecomponentsdemo.databinding.AccountFragmentBinding;
+import com.adamzfc.architecturecomponentsdemo.di.Injectable;
+import com.adamzfc.architecturecomponentsdemo.util.AutoClearedValue;
 
 import java.util.Collections;
 import java.util.List;
@@ -29,13 +29,22 @@ import javax.inject.Inject;
  * Created by adamzfc on 2017/6/29.
  */
 
-public class AccountFragment extends LifecycleFragment implements Injectable {
+public class AccountFragment extends LifecycleFragment implements AccountContract.View, Injectable {
     AutoClearedValue<AccountFragmentBinding> binding;
     AutoClearedValue<AccountAdapter> adapter;
     private AccountViewModel accountViewModel;
 
     @Inject
+    AccountContract.Presenter mPresenter;
+
+    @Inject
     ViewModelProvider.Factory viewModelFactory;
+
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(getContext().getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
 
     @Nullable
     @Override
@@ -54,7 +63,8 @@ public class AccountFragment extends LifecycleFragment implements Injectable {
         AccountAdapter adapter = new AccountAdapter();
         this.adapter = new AutoClearedValue<>(this, adapter);
         this.binding.get().accountList.setAdapter(adapter);
-        this.binding.get().setPresenter(accountViewModel);
+        mPresenter.bindView(this);
+        this.binding.get().setPresenter(mPresenter);
         initAccountList(accountViewModel);
     }
 

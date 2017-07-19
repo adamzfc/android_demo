@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Define standard dimensions to comply with Holo-style grids and rhythm. -->
 
+    <!-- App Primary Text Sizes -->
+    <dimen name="textSize_tiny">4dp</dimen>
+    <dimen name="textSize_small">8dp</dimen>
+    <dimen name="textSize_medium">16dp</dimen>
+    <dimen name="textSize_large">32dp</dimen>
+    <dimen name="textSize_huge">64dp</dimen>
+
+    <!-- Define standard dimensions to comply with Holo-style grids and rhythm. -->
     <dimen name="margin_tiny">4dp</dimen>
     <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_medium">16dp</dimen>
     <dimen name="margin_large">32dp</dimen>
     <dimen name="margin_huge">64dp</dimen>
 
+    <dimen name="padding_tiny">4dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_large">32dp</dimen>
+    <dimen name="padding_huge">64dp</dimen>
+
     <!-- Semantic definitions -->
 
     <dimen name="horizontal_page_margin">@dimen/margin_medium</dimen>
     <dimen name="vertical_page_margin">@dimen/margin_medium</dimen>
+
 </resources>

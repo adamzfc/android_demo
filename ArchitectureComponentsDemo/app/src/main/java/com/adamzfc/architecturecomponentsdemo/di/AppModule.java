@@ -25,6 +25,9 @@ import com.adamzfc.architecturecomponentsdemo.data.api.LogInterceptor;
 import com.adamzfc.architecturecomponentsdemo.data.db.AccountDao;
 import com.adamzfc.architecturecomponentsdemo.data.db.FinancialDb;
 import com.adamzfc.architecturecomponentsdemo.data.db.TransactionDao;
+import com.adamzfc.architecturecomponentsdemo.data.repository.AccountRepository;
+import com.adamzfc.architecturecomponentsdemo.ui.account.AccountContract;
+import com.adamzfc.architecturecomponentsdemo.ui.account.AccountPresenter;
 import com.adamzfc.architecturecomponentsdemo.util.AppConstants;
 import com.adamzfc.architecturecomponentsdemo.util.LiveDataCallAdapterFactory;
 
@@ -67,6 +70,11 @@ class AppModule {
     @Singleton @Provides
     TransactionDao provideTransactionDao(FinancialDb db) {
         return db.transactionDao();
+    }
+
+    @Provides
+    AccountContract.Presenter provideAccountPresenter(AccountRepository repository) {
+        return new AccountPresenter(repository);
     }
 
     @Provides

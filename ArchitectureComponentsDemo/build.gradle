@@ -2,7 +2,7 @@
 
 buildscript {
     repositories {
-//        maven { url 'http://localhost:8081/artifactory/list/libs-release/'}
+        maven { url 'http://localhost:8081/artifactory/list/libs-release/'}
         jcenter()
         maven { url 'https://dl.google.com/dl/android/maven2/' }
     }
@@ -17,7 +17,7 @@ buildscript {
 
 allprojects {
     repositories {
-//        maven { url 'http://localhost:8081/artifactory/list/libs-release/'}
+        maven { url 'http://localhost:8081/artifactory/list/libs-release/'}
         jcenter()
         maven { url 'https://dl.google.com/dl/android/maven2/' }
     }

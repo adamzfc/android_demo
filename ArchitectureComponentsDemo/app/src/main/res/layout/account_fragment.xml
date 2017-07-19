@@ -9,7 +9,7 @@
             type="String"/>
         <variable
             name="presenter"
-            type="com.adamzfc.architecturecomponentsdemo.ui.account.AccountPresenter"/>
+            type="com.adamzfc.architecturecomponentsdemo.ui.account.AccountContract.Presenter"/>
     </data>
     <android.support.design.widget.CoordinatorLayout
         android:orientation="vertical"
@@ -25,7 +25,7 @@
         <!--android:onClick="@{() -> presenter.addAccount()}"-->
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
-            android:onClick="@{(v) -> presenter.addAccount(v)}"
+            android:onClick="@{() -> presenter.addAccount()}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
