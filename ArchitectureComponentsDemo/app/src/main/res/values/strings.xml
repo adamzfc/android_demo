@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ArchitectureComponentsDemo</string>
     <string name="account_title">%1$s %2$s</string>
+    <string name="crash_toast_text">crash</string>
 </resources>

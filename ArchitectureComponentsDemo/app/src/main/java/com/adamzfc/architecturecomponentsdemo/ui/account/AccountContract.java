@@ -15,7 +15,7 @@ import java.util.List;
 
 public interface AccountContract {
     interface View extends BaseView {
-
+        void testSth();
     }
 
     interface Presenter extends BasePresenter<View> {

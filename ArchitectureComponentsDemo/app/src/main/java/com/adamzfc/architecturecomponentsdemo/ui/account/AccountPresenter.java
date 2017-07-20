@@ -23,7 +23,10 @@ public class AccountPresenter extends AbstractPresenter<AccountContract.View> im
 
     @Override
     public void addAccount() {
+        List a = null;
+        a.get(0);
         if (isViewAttached()) {
+            getView().testSth();
         }
     }
 

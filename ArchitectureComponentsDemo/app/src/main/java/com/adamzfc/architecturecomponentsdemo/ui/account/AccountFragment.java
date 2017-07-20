@@ -7,6 +7,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,10 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
+
+import eltos.simpledialogfragment.form.Check;
+import eltos.simpledialogfragment.form.Input;
+import eltos.simpledialogfragment.form.SimpleFormDialog;
 
 /**
  * Created by adamzfc on 2017/6/29.
@@ -74,12 +79,48 @@ public class AccountFragment extends LifecycleFragment implements AccountContrac
             if (listResource != null && listResource.data != null) {
                 if (listResource.status.equals(Status.ERROR)) {
                     Toast.makeText(getActivity(), listResource.message, Toast.LENGTH_SHORT).show();
+                } else {
+                    adapter.get().replace(listResource.data);
                 }
-                adapter.get().replace(listResource.data);
             } else {
                 adapter.get().replace(Collections.emptyList());
             }
         });
     }
 
+    @Override
+    public void testSth() {
+//        SimpleDialog.build()
+//                .title("test")
+//                .msg("ttttttttt")
+//                .show(this);
+
+//        String[] data = new String[]{"1", "2", "3"};
+//        SimpleListDialog.build()
+//                .title("test")
+//                .choiceMode(SINGLE_CHOICE_DIRECT)
+//                .items(data)
+//                .show(this);
+
+//        SimpleColorDialog.build()
+//                .title("color picker")
+//                .colorPreset(Color.RED)
+//                .allowCustom(true)
+//                .show(this);
+
+
+        SimpleFormDialog.build()
+                .title("register")
+                .msg("tjkesjtklejstkjltke")
+                .fields(
+                        Input.name("username").required().hint("please input username").validatePatternAlphanumeric(),
+                        Input.password("password").required().max(20).validatePatternStrongPassword(),
+                        Input.email("email").required(),
+                        Input.plain("country").hint("please input country")
+                                .inputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES)
+                                .suggest("chain").forceSuggestion(),
+                        Check.box(null).label("accept").required()
+                )
+                .show(this);
+    }
 }
