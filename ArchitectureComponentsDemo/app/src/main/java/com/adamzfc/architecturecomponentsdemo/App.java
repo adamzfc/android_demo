@@ -22,6 +22,7 @@ import dagger.android.HasActivityInjector;
  */
 @ReportsCrashes(
         formUri = "http://10.9.254.119:55000/send",
+//        formUri = "http://192.168.1.106:55000/send",
         reportType = HttpSender.Type.JSON,
         httpMethod = HttpSender.Method.POST,
         mode = ReportingInteractionMode.TOAST,
